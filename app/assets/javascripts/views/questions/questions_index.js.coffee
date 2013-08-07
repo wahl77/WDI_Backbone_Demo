@@ -5,7 +5,7 @@ class WdiBackboneDemo.Views.QuestionsIndex extends Backbone.View
   template: JST['questions/index']  # This is setting the object
 
   render: ->                        # This is similar to render questions/index
-    $(@el).html(@template())        # @ is similar to this
+    $(@el).html(@template(questions: "Look at the questions"))        # @ is similar to this
     this                            # @template is equivalent to WdiBackboneDemo.Views.QuestionsIndex.template
                                     # @el is backbone magic
 
