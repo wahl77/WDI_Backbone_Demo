@@ -3,9 +3,13 @@ class WdiBackboneDemo.Routers.Questions extends Backbone.Router
     '': 'index'
     'questions/:id': 'show' # Example: http://localhost:3000/#questions/123
 
+  initialize: ->
+    @collection = new WdiBackboneDemo.Collections.Questions() 
+    @collection.fetch(reset: true)
+
   index: -> 
     alert "You are in the index Action"
-    view = new WdiBackboneDemo.Views.QuestionsIndex()
+    view = new WdiBackboneDemo.Views.QuestionsIndex(collection: @collection)
     $('#container').html(view.render().el)
 
   show: (id) -> # Show takes the id argurment 
